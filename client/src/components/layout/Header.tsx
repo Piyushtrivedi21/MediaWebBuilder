@@ -36,12 +36,12 @@ const Header: React.FC = () => {
   };
 
   const handleScrollTo = (href: string) => {
+    if (!href.startsWith('/#')) {
+      scrollToTop();
+    }
     const element = document.querySelector(`[data-scroll-to="${href}"]`);
     if (element) {
       scrollToElement(element);
-    } else {
-      // Handle cases where the element isn't found (e.g., log an error or use a default behavior)
-      console.warn(`Element with data-scroll-to="${href}" not found.`);
     }
   };
 
