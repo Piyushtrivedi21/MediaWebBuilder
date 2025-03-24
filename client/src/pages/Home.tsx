@@ -9,22 +9,43 @@ import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
-import { services } from '@/data/services';
+import { FaChartLine, FaMoneyBillWave, FaChartBar } from 'react-icons/fa'; // Added imports for icons
 import { portfolioItems } from '@/data/portfolio';
 import { values } from '@/data/values';
 import ServiceCard from '@/components/services/ServiceCard';
 import PortfolioCard from '@/components/portfolio/PortfolioCard';
 import ValueCard from '@/components/about/ValueCard';
 
+const services = [
+  {
+    title: "Performance Marketing",
+    description: "By harnessing sophisticated analytical tools, we architect hyper-focused marketing initiatives, guaranteeing that each allocated marketing budget actively propels the attainment of quantifiable organizational milestones.",
+    icon: FaChartLine,
+    bgImage: "url('path/to/your/image.jpg')"
+  },
+  {
+    title: "ROAS Maximization",
+    description: "Our customer acquisition blueprints are designed to pinpoint and cultivate relationships with premium customer segments, fostering enduring expansion through finely tuned outreach and interaction methodologies.",
+    icon: FaMoneyBillWave,
+    bgImage: "url('path/to/your/image.jpg')"
+  },
+  {
+    title: "Data-Driven Results",
+    description: "We place paramount importance on amplifying advertising expenditure returns, deploying methodologies that elevate the efficacy of each resource commitment, thereby assuring judicious financial deployment and demonstrable achievements.",
+    icon: FaChartBar,
+    bgImage: "url('path/to/your/image.jpg')"
+  }
+];
+
 const Home: React.FC = () => {
   // Display only 3 services on the homepage
   const featuredServices = services.slice(0, 3);
-  
+
   return (
     <>
       <HeroSection />
       <ClientsSection />
-      
+
       {/* About Section */}
       <section id="about" className="py-20 bg-[#121212]">
         <div className="container mx-auto px-4 md:px-6">
@@ -71,14 +92,14 @@ const Home: React.FC = () => {
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2DD4BF] bg-opacity-20 rounded-full"></div>
             </motion.div>
           </div>
-          
+
           {/* Values */}
           <div className="mt-24">
             <SectionHeading
               title="Our Core Values"
               subtitle="The principles that guide our work and relationships with clients"
             />
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value, index) => (
                 <ValueCard key={value.id} value={value} index={index} />
@@ -87,7 +108,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Services Section */}
       <section id="services" className="py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4 md:px-6">
@@ -95,13 +116,13 @@ const Home: React.FC = () => {
             title="Our Services"
             subtitle="Comprehensive digital marketing solutions tailored to your business needs"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
-          
+
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -117,7 +138,7 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-[#121212]">
         <div className="container mx-auto px-4 md:px-6">
@@ -125,13 +146,13 @@ const Home: React.FC = () => {
             title="Our Work"
             subtitle="Explore our recent projects and success stories"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, index) => (
               <PortfolioCard key={item.id} item={item} index={index} />
             ))}
           </div>
-          
+
           <motion.div 
             initial="hidden"
             whileInView="visible"
@@ -147,7 +168,7 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
       </section>
-      
+
       <TestimonialsSection />
       <NewsletterSection />
     </>

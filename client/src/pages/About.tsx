@@ -29,7 +29,7 @@ const About: React.FC = () => {
     {
       name: 'RACHIT SHUKUL',
       role: 'SEO Specialist',
-      bio: 'James crafts data-driven SEO strategies that help our clients climb to the top of search results',
+      bio: 'Rachit crafts data-driven SEO strategies that help our clients climb to the top of search results',
     },
   ];
 
