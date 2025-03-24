@@ -26,7 +26,7 @@ export const staggerContainer: Variants = {
   }
 };
 
-export const slideInFromRight: Variants = {
+export const slideInFromRight = (delay: number = 0): Variants => ({
   hidden: { 
     x: 50,
     opacity: 0 
@@ -35,13 +35,14 @@ export const slideInFromRight: Variants = {
     x: 0,
     opacity: 1,
     transition: {
+      delay,
       duration: 0.6,
       ease: "easeOut"
     }
   }
-};
+});
 
-export const slideInFromLeft: Variants = {
+export const slideInFromLeft = (delay: number = 0): Variants => ({
   hidden: { 
     x: -50,
     opacity: 0 
@@ -50,11 +51,12 @@ export const slideInFromLeft: Variants = {
     x: 0,
     opacity: 1,
     transition: {
+      delay,
       duration: 0.6,
       ease: "easeOut"
     }
   }
-};
+});
 
 export const scaleUpOnHover: Variants = {
   initial: { scale: 1 },
