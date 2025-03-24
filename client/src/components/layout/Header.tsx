@@ -41,6 +41,12 @@ const Header: React.FC = () => {
     if (path.startsWith('#') && location === '/') {
       e.preventDefault();
       scrollToElement(path.substring(1));
+    } else {
+      // Scroll to top when navigating to new pages
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -52,7 +58,9 @@ const Header: React.FC = () => {
     )}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          <Logo />
+          <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="cursor-pointer">
+            <Logo />
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -74,7 +82,7 @@ const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Link href="/contact">
-              <a>
+              <a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <Button 
                   className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-6 py-2 rounded-md font-montserrat font-medium transition-all duration-300"
                 >
@@ -109,13 +117,19 @@ const Header: React.FC = () => {
               <div className="flex flex-col space-y-4">
                 {navLinks.map(link => (
                   <Link key={link.path} href={link.path}>
-                    <a className="text-white font-montserrat font-medium py-2 hover:text-[#2DD4BF] transition-colors duration-300">
+                    <a 
+                      className="text-white font-montserrat font-medium py-2 hover:text-[#2DD4BF] transition-colors duration-300"
+                      onClick={(e) => handleNavClick(link.path, e)}
+                    >
                       {link.name}
                     </a>
                   </Link>
                 ))}
                 <Link href="/contact">
-                  <a className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-4 py-2 rounded-md font-montserrat font-medium text-center transition-all duration-300">
+                  <a 
+                    className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-4 py-2 rounded-md font-montserrat font-medium text-center transition-all duration-300"
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  >
                     CONTACT US
                   </a>
                 </Link>
