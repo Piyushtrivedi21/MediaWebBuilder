@@ -57,23 +57,23 @@ export const services: Service[] = [
     ]
   },
   {
-    id: "social-media-marketing",
-    title: "Social Media Marketing",
-    description: "Build and engage your audience across all major social platforms with data-driven strategies and compelling content.",
-    icon: "M20 12V4a2 2 0 0 0-2-2h-8v12h8a2 2 0 0 0 2-2z",
+    id: "seo-optimization",
+    title: "SEO Optimization",
+    description: "Improve your website's visibility in search engines with our comprehensive SEO strategies designed to drive organic traffic and increase rankings.",
+    icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z",
     features: [
-      "Strategic content planning",
-      "Community management",
-      "Paid social advertising",
-      "Performance analytics"
+      "Technical SEO audits",
+      "Content optimization",
+      "Link building strategy",
+      "Keyword research"
     ],
     benefits: [
-      "Enhanced brand awareness",
-      "Increased audience engagement",
-      "Higher conversion rates",
-      "Improved customer loyalty"
+      "Improved search rankings",
+      "Higher organic traffic",
+      "Better ROI",
+      "Long-term sustainability"
     ],
-    whyChooseUs: "Our social media experts create engaging campaigns that resonate with your target audience. We combine creative content with data-driven insights to build meaningful connections and drive measurable results across all social platforms."
+    whyChooseUs: "Our SEO experts combine technical expertise with content strategy to improve your website's search engine visibility. We focus on sustainable, white-hat techniques that deliver long-lasting results and organic growth."
   },
   {
     id: "content-marketing",
@@ -131,7 +131,7 @@ export const services: Service[] = [
     ]
   },
   {
-    id: "seo-optimization",
+    id: "seo-optimization-2",
     title: "SEO Optimization",
     description: "Boost your organic visibility and climb search engine rankings with our comprehensive SEO strategies tailored to your industry and audience.",
     icon: "M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z",
