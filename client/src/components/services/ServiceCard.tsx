@@ -1,19 +1,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle } from 'lucide-react';
 import { fadeIn } from '@/lib/animations';
+import { Service } from '@/data/services';
 
 interface ServiceCardProps {
-  service: {
-    title: string;
-    description: string;
-    features: string[];
-    icon?: React.ReactNode;
-  }
+  service: Service;
+  index: number;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
   return (
     <motion.div
       variants={fadeIn()}
@@ -21,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     >
       {service.icon && (
         <div className="mb-4">
-          {service.icon}
+          {React.createElement(service.icon, { className: "w-8 h-8 text-[#2DD4BF]" })}
         </div>
       )}
       <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
