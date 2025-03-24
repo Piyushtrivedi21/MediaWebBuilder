@@ -16,10 +16,10 @@ const Logo: React.FC<LogoProps> = ({ className, size = 'md' }) => {
 
   return (
     <Link href="/">
-      <a className={cn("font-montserrat font-bold", sizeClasses[size], className)}>
+      <div className={cn("font-montserrat font-bold cursor-pointer", sizeClasses[size], className)}>
         <span className="text-white">MAIDEN</span>
         <span className="text-[#2DD4BF]">MEDIA</span>
-      </a>
+      </div>
     </Link>
   );
 };

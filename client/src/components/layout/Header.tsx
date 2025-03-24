@@ -58,7 +58,7 @@ const Header: React.FC = () => {
     )}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="cursor-pointer">
+          <div onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <Logo />
           </div>
 

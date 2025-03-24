@@ -1,19 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '@/components/ui/section-heading';
 import { Button } from '@/components/ui/button';
-import { fadeIn } from '@/lib/animations';
+import { fadeIn, slideInFromLeft, slideInFromRight } from '@/lib/animations';
 import { services } from '@/data/services';
 import ServiceCard from '@/components/services/ServiceCard';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronRight, Filter } from 'lucide-react';
 
 const Services: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  
+  const categories = [
+    { id: 'all', name: 'All Services' },
+    { id: 'advertising', name: 'Advertising' },
+    { id: 'content', name: 'Content' },
+    { id: 'marketing', name: 'Marketing' }
+  ];
+  
+  const serviceCategories = {
+    'programmatic-display-ads': 'advertising',
+    'ctv-advertising': 'advertising',
+    'social-media-marketing': 'marketing',
+    'content-marketing': 'content',
+    'affiliate-marketing': 'marketing',
+    'performance-marketing': 'marketing',
+    'paid-media-solutions': 'advertising',
+    'influencer-marketing': 'marketing',
+    'lead-gen-solutions': 'marketing',
+    'seo-optimization': 'content'
+  };
+  
+  const filteredServices = selectedCategory && selectedCategory !== 'all'
+    ? services.filter(service => serviceCategories[service.id as keyof typeof serviceCategories] === selectedCategory)
+    : services;
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-[#121212]">
-        <div className="container mx-auto px-4 md:px-6">
+      <section className="py-20 bg-[#121212] relative overflow-hidden">
+        {/* Background geometric elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#2DD4BF] opacity-5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2DD4BF] opacity-5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h1 
               initial="hidden"
@@ -22,7 +52,7 @@ const Services: React.FC = () => {
               variants={fadeIn()}
               className="text-4xl md:text-5xl font-montserrat font-bold text-white mb-6"
             >
-              Our <span className="text-[#2DD4BF]">Services</span>
+              Strategic <span className="text-[#2DD4BF]">Digital Marketing</span> Solutions
             </motion.h1>
             <motion.p 
               initial="hidden"
@@ -31,8 +61,20 @@ const Services: React.FC = () => {
               variants={fadeIn(0.1)}
               className="text-xl text-gray-300 mb-8 font-opensans leading-relaxed"
             >
-              Comprehensive digital marketing solutions tailored to your business goals and target audience.
+              Elevate your brand with our comprehensive suite of digital marketing services, tailored to your business goals and audience needs.
             </motion.p>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn(0.2)}
+            >
+              <Link href="/contact">
+                <Button className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-8 py-3 h-auto rounded-md font-montserrat font-medium transition-all duration-300 text-lg">
+                  GET STARTED
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -45,18 +87,18 @@ const Services: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={fadeIn()}
+              variants={slideInFromLeft(0.3)}
             >
-              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-6">Strategic Digital Solutions</h2>
+              <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-6">Data-Driven Digital Solutions</h2>
               <div className="w-20 h-1 bg-[#2DD4BF] mb-8"></div>
               <p className="text-gray-300 mb-6 font-opensans leading-relaxed">
-                At Maiden Media, we offer a comprehensive suite of digital marketing services designed to help your business thrive in the online landscape. Our data-driven approach ensures that every strategy we implement is tailored to your specific goals and audience.
+                At Maiden Media, we leverage the latest technologies and innovative strategies to help businesses thrive in today's competitive digital landscape. Our collaborative approach ensures that every campaign we develop aligns perfectly with your unique business objectives.
               </p>
               <p className="text-gray-300 mb-8 font-opensans leading-relaxed">
-                Whether you're looking to increase your online visibility, engage with your audience on social media, or convert more website visitors into customers, our team of experts has the skills and experience to help you succeed.
+                From programmatic display advertising to advanced lead generation solutions, our comprehensive suite of services is designed to maximize your ROI and drive sustainable growth for your business.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Customized strategies for your business', 'Data-driven approach to marketing', 'Regular reporting and analysis', 'Continuous optimization'].map((item, index) => (
+                {['Targeted audience engagement', 'Cross-channel marketing integration', 'Real-time performance analytics', 'Continuous strategy optimization'].map((item, index) => (
                   <motion.li 
                     key={index}
                     initial="hidden"
@@ -80,7 +122,7 @@ const Services: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={fadeIn(0.2)}
+              variants={slideInFromRight(0.3)}
               className="relative"
             >
               <img 
@@ -93,11 +135,76 @@ const Services: React.FC = () => {
             </motion.div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={service.id} service={service} index={index} />
-            ))}
+          {/* Service filter controls */}
+          <div className="flex flex-col md:flex-row justify-between items-center mb-10">
+            <motion.h2 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn()}
+              className="text-2xl md:text-3xl font-montserrat font-bold text-white mb-4 md:mb-0"
+            >
+              Our Services
+            </motion.h2>
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn(0.1)}
+              className="flex flex-wrap gap-2 md:gap-4 items-center"
+            >
+              <span className="text-gray-300 flex items-center">
+                <Filter className="w-4 h-4 mr-2" />
+                Filter by:
+              </span>
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id === 'all' ? null : category.id)}
+                  className={`px-4 py-2 rounded-md text-sm transition-all duration-300 ${
+                    (category.id === 'all' && !selectedCategory) || selectedCategory === category.id
+                      ? 'bg-[#2DD4BF] text-[#121212] font-medium'
+                      : 'bg-[#2A2A2A] text-gray-300 hover:bg-[#333333]'
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </motion.div>
           </div>
+          
+          {/* Services grid */}
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={selectedCategory || 'all'}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filteredServices.map((service, index) => (
+                <ServiceCard key={service.id} service={service} index={index} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+          
+          {/* No services found message */}
+          {filteredServices.length === 0 && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12"
+            >
+              <p className="text-gray-300 text-lg">No services found in this category.</p>
+              <button 
+                onClick={() => setSelectedCategory(null)}
+                className="text-[#2DD4BF] hover:text-[#14b8a6] font-medium mt-4 inline-flex items-center"
+              >
+                View all services <ChevronRight className="w-4 h-4 ml-1" />
+              </button>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -106,7 +213,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
             title="Our Process"
-            subtitle="How we work to deliver results for your business"
+            subtitle="How we transform your marketing goals into measurable results"
           />
           
           <div className="relative">
@@ -115,10 +222,10 @@ const Services: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
               {[
-                { title: 'Discovery', description: 'We learn about your business, goals, and target audience.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
-                { title: 'Strategy', description: 'We develop a customized plan based on your specific needs.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
-                { title: 'Execution', description: 'We implement the strategy with precision and creativity.', icon: 'M4 5a2 2 0 012-2h4.586A2 2 0 0112 3.586L15.414 7A2 2 0 0116 8.414V16a2 2 0 01-2 2h-1.528A6 6 0 004 9.528V5z' },
-                { title: 'Optimization', description: 'We continuously monitor, analyze, and improve for best results.', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15' }
+                { title: 'Discovery', description: 'We analyze your business goals, target audience, and competitive landscape to identify opportunities.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' },
+                { title: 'Strategy', description: 'We develop a customized marketing roadmap with clear KPIs aligned with your business objectives.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+                { title: 'Execution', description: 'We implement campaigns across channels with precision, creativity, and attention to detail.', icon: 'M4 5a2 2 0 012-2h4.586A2 2 0 0112 3.586L15.414 7A2 2 0 0116 8.414V16a2 2 0 01-2 2h-1.528A6 6 0 004 9.528V5z' },
+                { title: 'Optimization', description: 'We continuously analyze performance data to refine strategies and maximize your ROI.', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15' }
               ].map((step, index) => (
                 <motion.div 
                   key={index}
@@ -126,7 +233,7 @@ const Services: React.FC = () => {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   variants={fadeIn(index * 0.1)}
-                  className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#2A2A2A] relative z-10"
+                  className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#2A2A2A] relative z-10 hover:border-[#2DD4BF] transition-all duration-300 h-full flex flex-col"
                 >
                   {/* Step number */}
                   <div className="w-12 h-12 rounded-full bg-[#2DD4BF] text-[#121212] flex items-center justify-center font-montserrat font-bold text-xl mx-auto mb-6 relative">
@@ -141,7 +248,7 @@ const Services: React.FC = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-montserrat font-semibold text-white mb-3">{step.title}</h3>
-                  <p className="text-gray-300 font-opensans">{step.description}</p>
+                  <p className="text-gray-300 font-opensans flex-grow">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -153,34 +260,59 @@ const Services: React.FC = () => {
       <section className="py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
-            title="Our Packages"
-            subtitle="Flexible solutions to meet your business needs"
+            title="Marketing Packages"
+            subtitle="Scalable solutions designed to fit your business size and goals"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
-                name: 'Starter', 
+                name: 'Startup', 
                 price: '$999', 
                 period: 'per month',
-                description: 'Perfect for small businesses just getting started with digital marketing.',
-                features: ['SEO Baseline Setup', 'Basic Social Media Management', 'Monthly Analytics Report', 'Email Support'],
+                description: 'Establish your digital presence with essential marketing services designed for new and emerging businesses.',
+                features: [
+                  'Social Media Account Setup & Management',
+                  'Basic SEO Implementation',
+                  'Content Creation (4 posts/month)',
+                  'Monthly Performance Report',
+                  'Email Support'
+                ],
                 popular: false
               },
               { 
-                name: 'Growth', 
-                price: '$1,999', 
+                name: 'Growth Accelerator', 
+                price: '$2,499', 
                 period: 'per month',
-                description: 'Ideal for businesses looking to expand their online presence and drive growth.',
-                features: ['Comprehensive SEO Optimization', 'Content Creation & Publishing', 'Social Media Management', 'PPC Campaign Management', 'Bi-weekly Analytics Report', 'Email & Phone Support'],
+                description: 'Accelerate your business growth with our comprehensive marketing strategy and implementation.',
+                features: [
+                  'Full Social Media Management',
+                  'Advanced SEO Strategy & Implementation',
+                  'Content Marketing (8 pieces/month)',
+                  'PPC Campaign Management',
+                  'Email Marketing Automation',
+                  'Conversion Rate Optimization',
+                  'Bi-weekly Strategy Calls',
+                  'Priority Support'
+                ],
                 popular: true
               },
               { 
                 name: 'Enterprise', 
-                price: '$3,999', 
+                price: '$4,999', 
                 period: 'per month',
-                description: 'Full-service solution for established businesses seeking to dominate their market.',
-                features: ['Advanced SEO Strategy', 'Content Marketing Strategy', 'Full Social Media Management', 'Custom PPC & Remarketing', 'Conversion Rate Optimization', 'Weekly Analytics & Strategy Calls', 'Priority Support'],
+                description: 'Dominate your market with our all-inclusive marketing solution for established businesses seeking maximum impact.',
+                features: [
+                  'Multi-Platform Social Media Strategy',
+                  'Full SEO & Content Marketing Strategy',
+                  'Custom Content Creation (15+ pieces/month)',
+                  'Advanced PPC & Remarketing Campaigns',
+                  'CTV & Programmatic Advertising',
+                  'Influencer Partnership Management',
+                  'Marketing Automation Implementation',
+                  'Weekly Strategy & Analytics Meetings',
+                  'Dedicated Account Manager'
+                ],
                 popular: false
               }
             ].map((pkg, index) => (
@@ -190,21 +322,21 @@ const Services: React.FC = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 variants={fadeIn(index * 0.1)}
-                className={`relative bg-[#121212] rounded-lg overflow-hidden border ${pkg.popular ? 'border-[#2DD4BF]' : 'border-[#2A2A2A]'} transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2`}
+                className={`relative bg-[#121212] rounded-lg overflow-hidden border ${pkg.popular ? 'border-[#2DD4BF]' : 'border-[#2A2A2A]'} transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 h-full flex flex-col`}
               >
                 {pkg.popular && (
                   <div className="absolute top-0 right-0 bg-[#2DD4BF] text-[#121212] px-4 py-1 font-montserrat font-semibold text-sm">
                     MOST POPULAR
                   </div>
                 )}
-                <div className="p-8">
+                <div className="p-8 flex flex-col h-full">
                   <h3 className="text-2xl font-montserrat font-bold text-white mb-2">{pkg.name}</h3>
                   <div className="flex items-end mb-6">
                     <span className="text-3xl font-montserrat font-bold text-white">{pkg.price}</span>
                     <span className="text-gray-400 ml-2 mb-1">{pkg.period}</span>
                   </div>
                   <p className="text-gray-300 font-opensans mb-6">{pkg.description}</p>
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 mb-8 flex-grow">
                     {pkg.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start text-gray-300 font-opensans">
                         <CheckCircle2 className="w-5 h-5 text-[#2DD4BF] mr-3 mt-0.5" />
@@ -227,15 +359,43 @@ const Services: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeIn(0.4)}
-            className="mt-12 text-center"
+            className="mt-16 text-center"
           >
-            <p className="text-gray-300 font-opensans mb-6">
-              Need a custom solution? We offer tailored packages to meet your specific requirements.
+            <p className="text-gray-300 font-opensans text-lg mb-6">
+              Need a custom solution tailored to your specific business requirements?
             </p>
             <Link href="/contact">
               <Button variant="outline" className="bg-transparent border-2 border-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-[#121212] text-[#2DD4BF] px-8 py-3 h-auto rounded-md font-montserrat font-semibold transition-all duration-300 inline-flex items-center">
-                CONTACT US FOR A CUSTOM QUOTE
+                REQUEST A CUSTOMIZED STRATEGY
                 <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* Call to Action Section */}
+      <section className="py-20 bg-[#121212] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#2DD4BF] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2DD4BF] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeIn()}
+            className="max-w-3xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-6">Ready to Transform Your Digital Marketing?</h2>
+            <p className="text-xl text-gray-300 mb-10 font-opensans leading-relaxed">
+              Partner with Maiden Media to discover how our data-driven marketing strategies can elevate your brand and drive measurable business growth.
+            </p>
+            <Link href="/contact">
+              <Button className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-8 py-4 h-auto rounded-md font-montserrat font-semibold text-lg transition-all duration-300">
+                SCHEDULE A STRATEGY SESSION
               </Button>
             </Link>
           </motion.div>
