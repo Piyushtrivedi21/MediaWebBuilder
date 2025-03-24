@@ -11,6 +11,9 @@ export function scrollToElement(elementId: string) {
     window.scrollTo({
       top: element.offsetTop - 80,
       behavior: "smooth",
+    });
+  }
+}
 
 export const handleNavClick = (to: string, currentPath: string) => {
   if (currentPath === '/' && to.startsWith('/#')) {
@@ -24,7 +27,3 @@ export const handleNavClick = (to: string, currentPath: string) => {
   }
   return true; // Allow navigation
 };
-
-    });
-  }
-}
