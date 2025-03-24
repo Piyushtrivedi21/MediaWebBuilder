@@ -256,103 +256,58 @@ const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Packages Section */}
+      {/* Video Showcase Section */}
       <section className="py-20 bg-[#1A1A1A]">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
-            title="Marketing Packages"
-            subtitle="Scalable solutions designed to fit your business size and goals"
+            title="See Our Work in Action"
+            subtitle="Watch how we transform brands through innovative digital marketing strategies"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { 
-                name: 'Startup', 
-                price: '$999', 
-                period: 'per month',
-                description: 'Establish your digital presence with essential marketing services designed for new and emerging businesses.',
-                features: [
-                  'Social Media Account Setup & Management',
-                  'Basic SEO Implementation',
-                  'Content Creation (4 posts/month)',
-                  'Monthly Performance Report',
-                  'Email Support'
-                ],
-                popular: false
-              },
-              { 
-                name: 'Growth Accelerator', 
-                price: '$2,499', 
-                period: 'per month',
-                description: 'Accelerate your business growth with our comprehensive marketing strategy and implementation.',
-                features: [
-                  'Full Social Media Management',
-                  'Advanced SEO Strategy & Implementation',
-                  'Content Marketing (8 pieces/month)',
-                  'PPC Campaign Management',
-                  'Email Marketing Automation',
-                  'Conversion Rate Optimization',
-                  'Bi-weekly Strategy Calls',
-                  'Priority Support'
-                ],
-                popular: true
-              },
-              { 
-                name: 'Enterprise', 
-                price: '$4,999', 
-                period: 'per month',
-                description: 'Dominate your market with our all-inclusive marketing solution for established businesses seeking maximum impact.',
-                features: [
-                  'Multi-Platform Social Media Strategy',
-                  'Full SEO & Content Marketing Strategy',
-                  'Custom Content Creation (15+ pieces/month)',
-                  'Advanced PPC & Remarketing Campaigns',
-                  'CTV & Programmatic Advertising',
-                  'Influencer Partnership Management',
-                  'Marketing Automation Implementation',
-                  'Weekly Strategy & Analytics Meetings',
-                  'Dedicated Account Manager'
-                ],
-                popular: false
-              }
-            ].map((pkg, index) => (
-              <motion.div 
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={fadeIn(index * 0.1)}
-                className={`relative bg-[#121212] rounded-lg overflow-hidden border ${pkg.popular ? 'border-[#2DD4BF]' : 'border-[#2A2A2A]'} transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2 h-full flex flex-col`}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeIn()}
+            className="relative w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl"
+          >
+            <div className="relative aspect-video z-10">
+              {/* Video element that will autoplay in a loop */}
+              <video 
+                className="w-full h-full object-cover rounded-lg"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
               >
-                {pkg.popular && (
-                  <div className="absolute top-0 right-0 bg-[#2DD4BF] text-[#121212] px-4 py-1 font-montserrat font-semibold text-sm">
-                    MOST POPULAR
-                  </div>
-                )}
-                <div className="p-8 flex flex-col h-full">
-                  <h3 className="text-2xl font-montserrat font-bold text-white mb-2">{pkg.name}</h3>
-                  <div className="flex items-end mb-6">
-                    <span className="text-3xl font-montserrat font-bold text-white">{pkg.price}</span>
-                    <span className="text-gray-400 ml-2 mb-1">{pkg.period}</span>
-                  </div>
-                  <p className="text-gray-300 font-opensans mb-6">{pkg.description}</p>
-                  <ul className="space-y-3 mb-8 flex-grow">
-                    {pkg.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-gray-300 font-opensans">
-                        <CheckCircle2 className="w-5 h-5 text-[#2DD4BF] mr-3 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/contact">
-                    <Button className={`w-full ${pkg.popular ? 'bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212]' : 'bg-[#2A2A2A] hover:bg-[#2DD4BF] hover:text-[#121212] text-white'} px-6 py-3 h-auto rounded-md font-montserrat font-semibold transition-all duration-300`}>
-                      GET STARTED
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                {/* Digital marketing related video */}
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-person-typing-on-a-computers-keyboard-42753-large.mp4" type="video/mp4" />
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-person-typing-on-a-computers-keyboard-42753-large.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+              
+              {/* Overlay gradient for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-20"></div>
+              
+              {/* Content overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-30">
+                <h3 className="text-xl md:text-2xl font-montserrat font-bold text-white mb-2">Digital Marketing Excellence</h3>
+                <p className="text-gray-200 font-opensans mb-4 max-w-xl">
+                  Our strategic approach combines creativity, data-driven insights, and cutting-edge technology 
+                  to deliver exceptional results for our clients.
+                </p>
+                <Link href="/contact">
+                  <Button className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-6 py-2 h-auto rounded-md font-montserrat font-medium transition-all duration-300">
+                    GET STARTED
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2DD4BF] bg-opacity-20 rounded-full -z-10"></div>
+            <div className="absolute -top-6 -left-6 w-32 h-32 border-2 border-[#2DD4BF] rounded-full -z-10"></div>
+          </motion.div>
           
           <motion.div 
             initial="hidden"
@@ -362,7 +317,7 @@ const Services: React.FC = () => {
             className="mt-16 text-center"
           >
             <p className="text-gray-300 font-opensans text-lg mb-6">
-              Need a custom solution tailored to your specific business requirements?
+              Ready to transform your digital presence with our expertise?
             </p>
             <Link href="/contact">
               <Button variant="outline" className="bg-transparent border-2 border-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-[#121212] text-[#2DD4BF] px-8 py-3 h-auto rounded-md font-montserrat font-semibold transition-all duration-300 inline-flex items-center">
