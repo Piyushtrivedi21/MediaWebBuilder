@@ -47,10 +47,10 @@ const Home: React.FC = () => {
                 We believe in transparency, collaboration, and long-term partnerships that foster growth for our clients across various industries.
               </p>
               <Link href="/about">
-                <a className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300">
+                <span className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300 cursor-pointer">
                   Meet our team
                   <ChevronRight className="w-5 h-5 ml-2" />
-                </a>
+                </span>
               </Link>
             </motion.div>
             <motion.div

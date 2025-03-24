@@ -34,32 +34,32 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li>
                 <Link href="/">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Home</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Home</span>
                 </Link>
               </li>
               <li>
                 <Link href="/about">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">About Us</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">About Us</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Services</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Services</span>
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Portfolio</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Portfolio</span>
                 </Link>
               </li>
               <li>
                 <Link href="/careers">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Careers</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Careers</span>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Contact</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Contact</span>
                 </Link>
               </li>
             </ul>
@@ -70,32 +70,32 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">SEO Optimization</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">SEO Optimization</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Social Media Marketing</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Social Media Marketing</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Content Marketing</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Content Marketing</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">PPC Advertising</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">PPC Advertising</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Website Design</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Website Design</span>
                 </Link>
               </li>
               <li>
                 <Link href="/services">
-                  <a className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300">Data Analytics</a>
+                  <span className="text-gray-300 hover:text-[#2DD4BF] font-opensans transition-colors duration-300 cursor-pointer">Data Analytics</span>
                 </Link>
               </li>
             </ul>
@@ -134,13 +134,13 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-6">
               <Link href="#">
-                <a className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300">Privacy Policy</a>
+                <span className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300 cursor-pointer">Privacy Policy</span>
               </Link>
               <Link href="#">
-                <a className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300">Terms of Service</a>
+                <span className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300 cursor-pointer">Terms of Service</span>
               </Link>
               <Link href="#">
-                <a className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300">Cookie Policy</a>
+                <span className="text-gray-400 hover:text-[#2DD4BF] text-sm font-opensans transition-colors duration-300 cursor-pointer">Cookie Policy</span>
               </Link>
             </div>
           </div>
