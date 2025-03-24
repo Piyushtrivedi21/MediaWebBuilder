@@ -7,8 +7,6 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { scrollToElement } from '@/lib/utils';
 
-import React, { useState } from 'react';
-
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
