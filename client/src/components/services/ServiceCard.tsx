@@ -36,7 +36,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         {service.features.slice(0, 3).map((feature, idx) => (
           <li key={idx} className="flex items-start">
             <svg className="w-5 h-5 text-[#2DD4BF] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
+              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
             </svg>
             {feature}
           </li>
@@ -45,18 +45,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       <Link href={`/services/${service.id}`} className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] transition-colors duration-300">
         Learn More
         <ChevronRight className="w-4 h-4 ml-1" />
-      </Link>
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
-            </svg>
-            {feature}
-          </li>
-        ))}
-      </ul>
-      <Link href="/contact">
-        <span className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300 cursor-pointer">
-          Learn more
-          <ChevronRight className="w-5 h-5 ml-2" />
-        </span>
       </Link>
     </motion.div>
   );

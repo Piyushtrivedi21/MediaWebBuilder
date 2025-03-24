@@ -11,6 +11,7 @@ import Contact from "@/pages/Contact";
 import Portfolio from "@/pages/Portfolio";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ServiceDetails from "@/pages/ServiceDetails"; // Import the new component
 
 function Router() {
   return (
@@ -21,6 +22,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/services" component={Services} />
+          <Route path="/services/:id" component={ServiceDetails} />
           <Route path="/careers" component={Careers} />
           <Route path="/contact" component={Contact} />
           <Route path="/portfolio" component={Portfolio} />
