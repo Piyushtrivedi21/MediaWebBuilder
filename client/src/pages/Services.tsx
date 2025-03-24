@@ -87,7 +87,7 @@ const Services: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={slideInFromLeft(0.3)}
+              variants={slideInFromLeft}
             >
               <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-6">Data-Driven Digital Solutions</h2>
               <div className="w-20 h-1 bg-[#2DD4BF] mb-8"></div>
@@ -122,7 +122,7 @@ const Services: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
-              variants={slideInFromRight(0.3)}
+              variants={slideInFromRight}
               className="relative"
             >
               <img 

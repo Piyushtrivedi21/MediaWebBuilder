@@ -65,30 +65,34 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map(link => (
-              <Link key={link.path} href={link.path}>
-                <a
+              <Link 
+                key={link.path} 
+                href={link.path}
+                onClick={(e) => handleNavClick(link.path, e)}
+              >
+                <span
                   className={cn(
-                    "nav-link text-white font-montserrat font-medium tracking-wide relative hover:text-[#2DD4BF] transition-colors duration-300",
+                    "nav-link text-white font-montserrat font-medium tracking-wide relative hover:text-[#2DD4BF] transition-colors duration-300 cursor-pointer",
                     location === link.path ? "after:absolute after:w-full after:h-0.5 after:bg-[#2DD4BF] after:bottom-[-5px] after:left-0" : ""
                   )}
-                  onClick={(e) => handleNavClick(link.path, e)}
                 >
                   {link.name}
-                </a>
+                </span>
               </Link>
             ))}
           </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Link href="/contact">
-              <a onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                <Button 
-                  className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-6 py-2 rounded-md font-montserrat font-medium transition-all duration-300"
-                >
-                  CONTACT US
-                </Button>
-              </a>
+            <Link 
+              href="/contact"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              <Button 
+                className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-6 py-2 rounded-md font-montserrat font-medium transition-all duration-300"
+              >
+                CONTACT US
+              </Button>
             </Link>
           </div>
 
@@ -116,22 +120,27 @@ const Header: React.FC = () => {
             >
               <div className="flex flex-col space-y-4">
                 {navLinks.map(link => (
-                  <Link key={link.path} href={link.path}>
-                    <a 
-                      className="text-white font-montserrat font-medium py-2 hover:text-[#2DD4BF] transition-colors duration-300"
-                      onClick={(e) => handleNavClick(link.path, e)}
+                  <Link 
+                    key={link.path} 
+                    href={link.path}
+                    onClick={(e) => handleNavClick(link.path, e)}
+                  >
+                    <span 
+                      className="text-white font-montserrat font-medium py-2 hover:text-[#2DD4BF] transition-colors duration-300 block cursor-pointer"
                     >
                       {link.name}
-                    </a>
+                    </span>
                   </Link>
                 ))}
-                <Link href="/contact">
-                  <a 
-                    className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-4 py-2 rounded-md font-montserrat font-medium text-center transition-all duration-300"
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                <Link 
+                  href="/contact"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                >
+                  <span 
+                    className="bg-[#2DD4BF] hover:bg-[#14b8a6] text-[#121212] px-4 py-2 rounded-md font-montserrat font-medium text-center transition-all duration-300 block cursor-pointer"
                   >
                     CONTACT US
-                  </a>
+                  </span>
                 </Link>
               </div>
             </motion.div>
