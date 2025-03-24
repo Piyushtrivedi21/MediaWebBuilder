@@ -39,6 +39,9 @@ const Header: React.FC = () => {
     const element = document.querySelector(`[data-scroll-to="${href}"]`);
     if (element) {
       scrollToElement(element);
+    } else {
+      // Handle cases where the element isn't found (e.g., log an error or use a default behavior)
+      console.warn(`Element with data-scroll-to="${href}" not found.`);
     }
   };
 
@@ -50,7 +53,10 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/">
-            <div onClick={scrollToTop}>
+            <div onClick={() => {
+              scrollToTop();
+              return false;
+            }}>
               <Logo className="w-40 h-auto cursor-pointer" />
             </div>
           </Link>
@@ -61,7 +67,10 @@ const Header: React.FC = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => handleScrollTo(link.href)}
+                onClick={() => {
+                  handleScrollTo(link.href);
+                  return false; // Prevent default link behavior
+                }}
                 className={cn(
                   'text-gray-300 hover:text-white transition-colors cursor-pointer',
                   location === link.href && 'text-white font-semibold'
@@ -70,7 +79,10 @@ const Header: React.FC = () => {
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => handleScrollTo('/contact')}>
+            <Link href="/contact" onClick={() => {
+              handleScrollTo('/contact');
+              return false; // Prevent default link behavior
+            }}>
               <Button>Contact Us</Button>
             </Link>
           </nav>
@@ -103,6 +115,7 @@ const Header: React.FC = () => {
                   onClick={() => {
                     handleScrollTo(link.href);
                     setIsOpen(false);
+                    return false; // Prevent default link behavior
                   }}
                   className={cn(
                     'text-gray-300 hover:text-white transition-colors py-2 cursor-pointer',
@@ -115,6 +128,7 @@ const Header: React.FC = () => {
               <Link href="/contact" onClick={() => {
                 handleScrollTo('/contact');
                 setIsOpen(false);
+                return false; // Prevent default link behavior
               }}>
                 <Button className="w-full">Contact Us</Button>
               </Link>

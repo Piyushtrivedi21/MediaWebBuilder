@@ -24,10 +24,17 @@ export const scrollToTop = () => {
 }
 
 export const handleNavClick = (to: string, currentPath: string) => {
+  // Handle home page hash links
   if (currentPath === '/' && to.startsWith('/#')) {
     const elementId = to.substring(2);
     scrollToElement(elementId);
-    return false;
+    return false; // Prevent default navigation
   }
-  return true;
+  
+  // Handle non-hash links - scroll to top
+  if (!to.includes('#')) {
+    scrollToTop();
+  }
+  
+  return true; // Allow navigation
 };
