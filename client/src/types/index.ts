@@ -4,6 +4,8 @@ export interface Service {
   description: string;
   icon: string;
   features: string[];
+  benefits?: string[];
+  whyChooseUs?: string;
 }
 
 export interface PortfolioItem {

@@ -11,7 +11,14 @@ export const services: Service[] = [
       "AI-driven audience targeting",
       "Premium inventory optimization",
       "Dynamic creative optimization"
-    ]
+    ],
+    benefits: [
+      "Increased ROI through precise targeting",
+      "Real-time campaign optimization",
+      "Brand safety and transparency",
+      "Scalable advertising solutions"
+    ],
+    whyChooseUs: "Our programmatic display advertising solutions combine advanced technology with expert strategy to deliver your message to the right audience at the right time. We ensure brand safety while maximizing your advertising ROI through continuous optimization and transparent reporting."
   },
   {
     id: "ctv-advertising",
@@ -52,26 +59,40 @@ export const services: Service[] = [
   {
     id: "social-media-marketing",
     title: "Social Media Marketing",
-    description: "Build brand awareness and engage with your audience across all major social platforms with strategies designed to foster community and drive conversions.",
-    icon: "M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z",
+    description: "Build and engage your audience across all major social platforms with data-driven strategies and compelling content.",
+    icon: "M20 12V4a2 2 0 0 0-2-2h-8v12h8a2 2 0 0 0 2-2z",
     features: [
-      "Platform-specific content strategy",
-      "Community management & growth",
-      "Trend-responsive content creation",
-      "Engagement-optimized campaigns"
-    ]
+      "Strategic content planning",
+      "Community management",
+      "Paid social advertising",
+      "Performance analytics"
+    ],
+    benefits: [
+      "Enhanced brand awareness",
+      "Increased audience engagement",
+      "Higher conversion rates",
+      "Improved customer loyalty"
+    ],
+    whyChooseUs: "Our social media experts create engaging campaigns that resonate with your target audience. We combine creative content with data-driven insights to build meaningful connections and drive measurable results across all social platforms."
   },
   {
     id: "content-marketing",
     title: "Content Marketing",
-    description: "Create valuable, relevant content that resonates with your audience and positions your brand as an industry authority while driving engagement and conversions.",
-    icon: "M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z",
+    description: "Create valuable, relevant content that attracts and retains your target audience while driving profitable customer action.",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
     features: [
-      "Strategic content planning",
-      "SEO-optimized writing",
-      "Visual content production",
-      "Multi-format content development"
-    ]
+      "SEO-optimized content creation",
+      "Content strategy development",
+      "Multi-format content production",
+      "Content performance tracking"
+    ],
+    benefits: [
+      "Improved search engine rankings",
+      "Increased organic traffic",
+      "Higher domain authority",
+      "Better audience retention"
+    ],
+    whyChooseUs: "Our content marketing team creates high-quality, engaging content that speaks to your audience's needs while driving your business goals. We focus on delivering measurable results through strategic content planning and optimization."
   },
   {
     id: "affiliate-marketing",

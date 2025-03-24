@@ -20,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         delay: index * 0.1,
         ease: "easeOut"
       }}
-      className="service-card bg-[#121212] p-8 rounded-lg border border-[#2A2A2A] transition-all duration-500 relative overflow-hidden"
+      className="service-card bg-[#121212] p-8 rounded-lg border border-[#2A2A2A] transition-all duration-500 relative overflow-hidden group"
     >
       <div className="absolute inset-0 bg-[#2DD4BF]/5 transform scale-x-0 origin-right transition-transform duration-500 group-hover:scale-x-100 group-hover:origin-left z-[-1]"></div>
       <div className="text-[#2DD4BF] mb-6">
@@ -33,9 +33,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         {service.description}
       </p>
       <ul className="text-gray-300 font-opensans space-y-2 mb-6">
-        {service.features.map((feature, idx) => (
+        {service.features.slice(0, 3).map((feature, idx) => (
           <li key={idx} className="flex items-start">
             <svg className="w-5 h-5 text-[#2DD4BF] mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path>
+            </svg>
+            {feature}
+          </li>
+        ))}
+      </ul>
+      <Link href={`/services/${service.id}`} className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] transition-colors duration-300">
+        Learn More
+        <ChevronRight className="w-4 h-4 ml-1" />
+      </Link>
               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
             </svg>
             {feature}
