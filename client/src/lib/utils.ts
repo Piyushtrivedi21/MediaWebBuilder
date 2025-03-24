@@ -11,6 +11,20 @@ export function scrollToElement(elementId: string) {
     window.scrollTo({
       top: element.offsetTop - 80,
       behavior: "smooth",
+
+export const handleNavClick = (to: string, currentPath: string) => {
+  if (currentPath === '/' && to.startsWith('/#')) {
+    // Handle hash links on homepage
+    const elementId = to.substring(2);
+    scrollToElement(elementId);
+    return false; // Prevent default navigation
+  } else if (to === '/' || !to.startsWith('/#')) {
+    // Navigate to new page and scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  return true; // Allow navigation
+};
+
     });
   }
 }

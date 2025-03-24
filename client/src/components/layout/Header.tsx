@@ -29,6 +29,20 @@ const Header: React.FC = () => {
     { href: '/careers', label: 'Careers' },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  const handleScrollTo = (href: string) => {
+    const element = document.querySelector(`[data-scroll-to="${href}"]`);
+    if (element) {
+      scrollToElement(element);
+    }
+  };
+
   return (
     <header className={cn(
       'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
@@ -36,23 +50,28 @@ const Header: React.FC = () => {
     )}>
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Logo />
+          <Link href="/">
+            <div onClick={scrollToTop}>
+              <Logo className="w-40 h-auto cursor-pointer" />
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
+              <Link
+                key={link.href}
                 href={link.href}
+                onClick={() => handleScrollTo(link.href)}
                 className={cn(
-                  'text-gray-300 hover:text-white transition-colors',
+                  'text-gray-300 hover:text-white transition-colors cursor-pointer',
                   location === link.href && 'text-white font-semibold'
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact">
+            <Link href="/contact" onClick={() => handleScrollTo('/contact')}>
               <Button>Contact Us</Button>
             </Link>
           </nav>
@@ -82,16 +101,22 @@ const Header: React.FC = () => {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => {
+                    handleScrollTo(link.href);
+                    setIsOpen(false);
+                  }}
                   className={cn(
-                    'text-gray-300 hover:text-white transition-colors py-2',
+                    'text-gray-300 hover:text-white transition-colors py-2 cursor-pointer',
                     location === link.href && 'text-white font-semibold'
                   )}
-                  onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
+              <Link href="/contact" onClick={() => {
+                handleScrollTo('/contact');
+                setIsOpen(false);
+              }}>
                 <Button className="w-full">Contact Us</Button>
               </Link>
             </nav>
