@@ -10,28 +10,28 @@ const About: React.FC = () => {
   const team = [
     {
       id: 1,
-      name: 'Sarah Johnson',
+      name: 'PIYUSH TRIVEDI',
       position: 'CEO & Founder',
       bio: 'With over 15 years of experience in digital marketing, Sarah leads our agency with vision and passion.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80'
     },
     {
       id: 2,
-      name: 'David Chen',
+      name: 'SHUBHAM PARMAR',
       position: 'CTO',
       bio: 'David brings technical expertise to our marketing strategies, ensuring we stay on the cutting edge.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80'
     },
     {
       id: 3,
-      name: 'Maria Rodriguez',
+      name: 'HARSHIT MANGLA',
       position: 'Creative Director',
       bio: "Maria's eye for design and storytelling helps our clients stand out in crowded markets.",
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80'
     },
     {
       id: 4,
-      name: 'James Wilson',
+      name: 'RACHIT SHUKUL',
       position: 'SEO Specialist',
       bio: 'James crafts data-driven SEO strategies that help our clients climb to the top of search results.',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80'
@@ -39,10 +39,10 @@ const About: React.FC = () => {
   ];
 
   const milestones = [
-    { year: 2020, title: 'Founded', description: 'Maiden Media was established with a focus on innovative digital marketing solutions.' },
-    { year: 2021, title: 'First Major Client', description: 'Secured our first enterprise client and expanded our team to 10 members.' },
-    { year: 2022, title: 'Industry Recognition', description: 'Received multiple awards for our work in digital marketing campaigns.' },
-    { year: 2023, title: 'Global Expansion', description: 'Expanded our services globally and doubled our client portfolio.' }
+    { year: 2024, title: 'Founded', description: 'Maiden Media was established with a focus on innovative digital marketing solutions.' },
+    { year: 2025, title: 'First Major Client', description: 'Secured our first enterprise client and expanded our team to 10 members.' },
+    { year: 2026, title: 'Global Expansion', description: 'Expanded our services globally and doubled our client portfolio.' },
+    { year: 2027, title: 'Global Expansion', description: 'Expanded our services globally and doubled our client portfolio.' }
   ];
 
   return (
@@ -86,7 +86,7 @@ const About: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-white mb-6">Our Story</h2>
               <div className="w-20 h-1 bg-[#2DD4BF] mb-8"></div>
               <p className="text-gray-300 mb-6 font-opensans leading-relaxed">
-                Maiden Media was founded in 2020 with a simple mission: to help businesses thrive in the digital landscape through innovative marketing strategies that deliver real results.
+                Maiden Media was founded in 2024 with a simple mission: to help businesses thrive in the digital landscape through innovative marketing strategies that deliver real results.
               </p>
               <p className="text-gray-300 mb-6 font-opensans leading-relaxed">
                 What started as a small team of three passionate marketers has grown into a full-service digital marketing agency serving clients across various industries globally.
@@ -136,7 +136,7 @@ const About: React.FC = () => {
             title="Our Core Values"
             subtitle="The principles that guide our work and define our culture"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <ValueCard key={value.id} value={value} index={index} />
@@ -152,11 +152,11 @@ const About: React.FC = () => {
             title="Our Journey"
             subtitle="Key milestones in our growth and evolution"
           />
-          
+
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#2A2A2A]"></div>
-            
+
             <div className="relative">
               {milestones.map((milestone, index) => (
                 <motion.div 
@@ -176,7 +176,7 @@ const About: React.FC = () => {
                       <p className="text-gray-300 font-opensans">{milestone.description}</p>
                     </div>
                   </div>
-                  
+
                   {/* Timeline dot */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#2DD4BF] border-4 border-[#121212]"></div>
                 </motion.div>
@@ -193,7 +193,7 @@ const About: React.FC = () => {
             title="Meet Our Team"
             subtitle="The talented individuals behind our success"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <motion.div 
@@ -249,7 +249,7 @@ const About: React.FC = () => {
             title="Our Impact"
             subtitle="The numbers that showcase our achievements"
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div 
               initial="hidden"
@@ -261,10 +261,10 @@ const About: React.FC = () => {
               <div className="text-[#2DD4BF] mb-4">
                 <Users className="w-12 h-12 mx-auto" />
               </div>
-              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">100+</h3>
+              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">60+</h3>
               <p className="text-gray-300 font-opensans">Happy Clients</p>
             </motion.div>
-            
+
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -275,10 +275,10 @@ const About: React.FC = () => {
               <div className="text-[#2DD4BF] mb-4">
                 <Briefcase className="w-12 h-12 mx-auto" />
               </div>
-              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">250+</h3>
+              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">25+</h3>
               <p className="text-gray-300 font-opensans">Projects Completed</p>
             </motion.div>
-            
+
             <motion.div 
               initial="hidden"
               whileInView="visible"
@@ -287,23 +287,9 @@ const About: React.FC = () => {
               className="bg-[#121212] p-8 rounded-lg text-center border border-[#2A2A2A]"
             >
               <div className="text-[#2DD4BF] mb-4">
-                <Award className="w-12 h-12 mx-auto" />
-              </div>
-              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">15+</h3>
-              <p className="text-gray-300 font-opensans">Industry Awards</p>
-            </motion.div>
-            
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeIn(0.3)}
-              className="bg-[#121212] p-8 rounded-lg text-center border border-[#2A2A2A]"
-            >
-              <div className="text-[#2DD4BF] mb-4">
                 <User className="w-12 h-12 mx-auto" />
               </div>
-              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">30+</h3>
+              <h3 className="text-4xl font-montserrat font-bold text-white mb-2">10</h3>
               <p className="text-gray-300 font-opensans">Team Members</p>
             </motion.div>
           </div>
