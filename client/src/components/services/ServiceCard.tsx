@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
@@ -21,7 +20,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     >
       {service.icon && (
         <div className="mb-4">
-          {service.icon}
+          {typeof service.icon === 'function' ? <service.icon /> : service.icon}
         </div>
       )}
       <h3 className="text-2xl font-semibold mb-2">{service.title}</h3>
