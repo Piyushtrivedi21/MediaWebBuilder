@@ -66,5 +66,27 @@ export const services: Service[] = [
       "Display ad creation and optimization",
       "Retargeting and remarketing campaigns"
     ]
+  },
+  {
+    id: "affiliate-marketing",
+    title: "Affiliate Marketing",
+    description: "Generate revenue through strategic partnerships with influencers and complementary businesses.",
+    icon: "M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z",
+    features: [
+      "Partner network development",
+      "Commission structure optimization",
+      "Performance tracking and analytics"
+    ]
+  },
+  {
+    id: "performance-marketing",
+    title: "Performance Marketing",
+    description: "Focus on measurable results with data-driven campaigns designed to maximize ROI.",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+    features: [
+      "Conversion rate optimization",
+      "A/B testing and experimentation",
+      "Multi-channel attribution modeling"
+    ]
   }
 ];
