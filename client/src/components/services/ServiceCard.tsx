@@ -43,10 +43,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         ))}
       </ul>
       <Link href="/contact">
-        <a className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300">
+        <span className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300 cursor-pointer">
           Learn more
           <ChevronRight className="w-5 h-5 ml-2" />
-        </a>
+        </span>
       </Link>
     </motion.div>
   );

@@ -36,13 +36,12 @@ const PortfolioCard: React.FC<PortfolioCardProps> = ({ item, index }) => {
         <p className="text-gray-300 font-opensans mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {item.description}
         </p>
-        <a 
-          href="#" 
+        <button 
           className="inline-flex items-center text-[#2DD4BF] hover:text-[#14b8a6] font-montserrat font-medium transition-colors duration-300"
         >
           View case study
           <ChevronRight className="w-5 h-5 ml-2" />
-        </a>
+        </button>
       </div>
     </motion.div>
   );
